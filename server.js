@@ -3,6 +3,7 @@ var morgan = require('morgan');
 var path = require('path');
 
 var app = express();
+var counter;
 app.use(morgan('combined'));
 
 app.get('/', function (req, res) {
