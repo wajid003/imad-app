@@ -33,3 +33,5 @@ for (var i=0; i< names.length; i++){
 var ul = document.getElementById('namelist');
 ul.innerHTML = list;
 };
+request.open('GET', 'http://abdulwajid764.imad.hasura-app.io/submit-name?name?' +name , true);
+request.send(null);
