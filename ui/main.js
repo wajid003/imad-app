@@ -19,7 +19,12 @@ var name = nameInput.value;
 var submit = document.getElementById('submit_btn');
 
 submit.onclick = function(){
-var names = ['names1', 'names2', 'names3', 'names4'];
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function(){
+        if(request.readyState == XMLHttpRequest.DONE){
+            if(request.status == 200){
+                var names = request.responseText;
+                names = JSON.parse(names);
 var list = '';
 for (var i=0; i< names.length; i++){
     list += '<li>' + names[i] + '</li>';
