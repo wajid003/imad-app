@@ -10,7 +10,20 @@
             text = text.value;
             
             var submit = document.getElementById("post");
-            
+            submit.onclick = function(){
+             var request = new XMLHttpRequest();
+    request.onreadystatechange = function(){
+        if(request.readyState == XMLHttpRequest.DONE){
+            if(request.status == 200){
+                text = JSON.parse(text);
+            }
+        }
+    };
+                request.send('GET','http://abdulwajid764.imad.hasura-app.io/save' +text, true);
+                request.send(null);
+    };
+    
+                
         </script>
     </body>
 </html>
