@@ -24,7 +24,7 @@ request.send(null);
                         var text2 = request.responseText;
                         text2 = JSON.parse(text2);
                         
-                        text.innerHTML = text2.value;
+                        print.innerHTML = text2.value;
             }
                   }
                 };
