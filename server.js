@@ -12,7 +12,7 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 app.get('/comment.html',function (req,res){
-    res.send("comment page");
+    res.sendFile(path.join(__dirname, 'ui' , 'comment.html'));
 });
 app.get('/post.html',function (req,res){
     res.send("post page");
