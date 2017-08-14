@@ -21,6 +21,11 @@ app.get('/submit-name/', function (req,res){
     names.push(name);
     res.send(JSON.stringify(names));
 });
+
+app.get('/article.html',function (req,res){
+    var name = req.query.name;
+    res.send(JSON.stringify(name));
+});
 app.get('/ui/main.js', function (req,res){
     res.sendFile(path.join(__dirname, 'ui', 'main.js'));
 });
