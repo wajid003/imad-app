@@ -23,7 +23,7 @@ app.get('/submit-name/', function (req,res){
 });
 
 app.get('/article.html',function (req,res){
-    var name = req.query.name;
+    var name = req.query.text1;
     res.send(JSON.stringify(name));
 });
 app.get('/ui/main.js', function (req,res){
