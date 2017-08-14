@@ -18,6 +18,10 @@ app.get('/comment.html',function (req,res){
 app.get('/post.html',function (req,res){
     res.sendFile(path.join(__dirname, 'ui' , 'post.html'));
 });
+app.get('/save',function (req,res){
+    var type = req.query.text;
+    res.send(JSON.stringify(text));
+});
 
 var counter = 0;
 app.get('/counter',function(req,res){
