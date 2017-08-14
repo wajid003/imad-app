@@ -23,8 +23,8 @@ request.send(null);
                     if(request.status ==200){
                         var text2 = request.responseText;
                         text2 = JSON.parse(text2);
-                        var print = document.getElementById("print");
-                        print.innerHTML = text2.value;
+                        
+                        text.innerHTML = text2.value;
             }
                   }
                 };
