@@ -31,6 +31,7 @@ request.send(null);
                  var text1 = text.value;
                 request.open('GET','http://abdulwajid764.imad.hasura-app.io/article.html' +text1 , true);
                  request.send(null);
+                 text(null);
 };
 var nameInput = document.getElementById('name');
 var name = nameInput.value;
