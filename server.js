@@ -14,8 +14,9 @@ app.get('/', function (req, res) {
 app.get('/comment.html',function (req,res){
     res.sendFile(path.join(__dirname, 'ui' , 'comment.html'));
 });
+
 app.get('/post.html',function (req,res){
-    res.send("post page");
+    res.sendFile(path.join(__dirname, 'ui' , 'post.html'));
 });
 
 var counter = 0;
