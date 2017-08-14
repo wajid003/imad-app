@@ -6,9 +6,18 @@ var app = express();
 
 app.use(morgan('combined'));
 
+
+
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
+app.get('/comment.html',function (req,res){
+    res.send("comment page");
+});
+app.get('/post.html',function (req,res){
+    res.send("post page");
+});
+
 var counter = 0;
 app.get('/counter',function(req,res){
     counter = counter + 1;
