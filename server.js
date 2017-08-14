@@ -19,6 +19,7 @@ app.get('/post.html',function (req,res){
     res.sendFile(path.join(__dirname, 'ui' , 'post.html'));
 });
 var data;
+var text;
 app.get('/save',function (req,res){
     var type = req.query.text;
     res.send(JSON.stringify(text));
