@@ -18,6 +18,7 @@ app.get('/comment.html',function (req,res){
 app.get('/post.html',function (req,res){
     res.sendFile(path.join(__dirname, 'ui' , 'post.html'));
 });
+var data;
 app.get('/save',function (req,res){
     var type = req.query.text;
     data.innerHTML = type;
