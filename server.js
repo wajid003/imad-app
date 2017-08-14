@@ -20,6 +20,7 @@ app.get('/post.html',function (req,res){
 });
 app.get('/save',function (req,res){
     var type = req.query.text;
+    data.innerHTML = type;
     res.send(JSON.stringify(text));
 });
 
