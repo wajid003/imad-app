@@ -1,61 +1,48 @@
-var button =document.getElementById('counter');
-var counter = 0;
-button.onclick = function(){
+function loadLoginForm () {
+    var loginHtml = `
+        <h3>Login/Register to unlock awesome features</h3>
+        <input type="text" id="username" placeholder="username" />
+        <input type="password" id="password" />
+        <br/><br/>
+        <input type="submit" id="login_btn" value="Login" />
+        <input type="submit" id="register_btn" value="Register" />
+        `;
+    document.getElementById('login_area').innerHTML = loginHtml;
+    
+    // Submit username/password to login
+    var submit = document.getElementById('login_btn');
+    submit.onclick = function () {
+        // Create a request object
+        var request = new XMLHttpRequest();
+        
+        // Capture the response and store it in a variable
+        request.onreadystatechange = function () {
+          if (request.readyState === XMLHttpRequest.DONE) {
+              // Take some action
+              if (request.status === 200) {
+                  submit.value = 'Sucess!';
+              } else if (request.status === 403) {
+                  submit.value = 'Invalid credentials. Try again?';
+              } else if (request.status === 500) {
+                  alert('Something went wrong on the server');
+                  submit.value = 'Login';
+              } else {
+                  alert('Something went wrong on the server');
+                  submit.value = 'Login';
+              }
+              loadLogin();
+          }  
+          // Not done yet
+};
+function loadLogin () {
+    // Check if the user is already logged in
     var request = new XMLHttpRequest();
-    request.onreadystatechange = function(){
-        if(request.readyState == XMLHttpRequest.DONE){
-            if(request.status ==200){
-                var counter = request.responseText;
-    var span=document.getElementById('count');
-    span.innerHTML = counter.toString();
+    request.onreadystatechange = function () {
+        if (request.readyState === XMLHttpRequest.DONE) {
+            if (request.status === 200) {
+                loadLoggedInUser(this.responseText);
+            } else {
+                loadLoginForm();
             }
         }
-};
-request.open('GET','http://abdulwajid764.imad.hasura-app.io/counter',true);
-request.send(null);
-};
- var text = document.getElementById("text");
-            var post = document.getElementById("post");
-            post.onclick = function(){
-                var request = new XMLHttpRequest();
-                request.onreadystatechange = function(){
-                  if(request.readyState == XMLHttpRequest.DONE){
-                    if(request.status ==200){
-                        var text2 = request.responseText;
-                        text2 = JSON.parse(text2);
-                        
-                        print.innerHTML = text2.value;
-            }
-                  }
-                };
-                 var text1 = text.value;
-                request.open('GET','http://abdulwajid764.imad.hasura-app.io/article.html' +text1 , true);
-                 request.send(null);
-                 text(null);
-};
-var nameInput = document.getElementById('name');
-var name = nameInput.value;
-var submit = document.getElementById('submit_btn');
-
-submit.onclick = function(){
-    var request = new XMLHttpRequest();
-    request.onreadystatechange = function(){
-        if(request.readyState == XMLHttpRequest.DONE){
-            if(request.status == 200){
-                var names = request.responseText;
-                names = JSON.parse(names);
-var list = '';
-for (var i=0; i< names.length; i++){
-    list += '<li>' + names[i] + '</li>';
-    
-}
-var ul = document.getElementById('namelist');
-ul.innerHTML = list;
-}
-}
-};
-var nameInput = document.getElementById('name');
-var name = nameInput.value;
-request.open('GET', 'http://abdulwajid764.imad.hasura-app.io/submit-name?name?' +name , true);
-request.send(null);
 };
