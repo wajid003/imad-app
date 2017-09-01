@@ -50,3 +50,11 @@ function loadLogin () {
  request.open('GET','/check-login',TRUE);
  request.send(null);
 }
+function loadLoggedInUser(username){
+    var loginArea = document.getElementById('login_area');
+    loginArea.innerHTML = `
+    <h3> welcome <i>${username}</i></h3>
+    <a href = "/logout">Logout</a>
+    `;
+    
+}
