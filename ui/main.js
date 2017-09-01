@@ -34,6 +34,8 @@ function loadLoginForm () {
           }  
           // Not done yet
 };
+};
+}
 
 function loadLogin () {
     // Check if the user is already logged in
