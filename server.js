@@ -14,7 +14,10 @@ var config = {
 };
 app.use(morgan('combined'));
 
-
+app.get('/check-login',function(req,res){
+   res.send('logged in successfully'); 
+}
+);
 
 
 // Do not change port, otherwise your app won't run on IMAD servers
