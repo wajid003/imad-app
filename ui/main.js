@@ -34,6 +34,7 @@ function loadLoginForm () {
           }  
           // Not done yet
 };
+
 function loadLogin () {
     // Check if the user is already logged in
     var request = new XMLHttpRequest();
@@ -46,3 +47,6 @@ function loadLogin () {
             }
         }
 };
+ request.open('GET','/check-login',TRUE);
+ request.send(null);
+}
